@@ -5,54 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CharityConnect</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to your external CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-                <div class="menu-icon">&#9776;</div>
-            </nav>
-            <img class="char" src="../images/gettyimages-2162712815-2048x2048.jpg">
-        </header>
-    </div>
+    <div id="root"></div>
 
-    <main>
-        <section class="about-us">
-            <img class="img1" src="../images/abouts.png" alt="About Us Logo">
-            <h2 class="About">About Us</h2>
-            <p>CharityConnect is a leading platform that empowers individuals and organizations to make a meaningful impact on society. We provide comprehensive resources and opportunities for volunteering, fundraising, and social entrepreneurship. By connecting diverse stakeholders, we foster collaboration, innovation, and sustainable social change. Our goal is to create a more compassionate and equitable world where everyone can contribute to making a difference.</p>
-        </section>
+    <script type="text/babel">
+        const CharityConnect = () => {
+            return (
+                <div className="container">
+                    <header>
+                        <nav className="nav">
+                            <ul>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                            <div className="menu-icon">&#9776;</div>
+                        </nav>
+                        <img className="char" src="../images/gettyimages-2162712815-2048x2048.jpg" alt="Charity Connect" />
+                    </header>
 
-        <section class="vision">
-            <img class="img2" src="../images/vision.png" alt="Vision Logo">
-            <h2 class="Vision">Vision</h2>
-            <p>Our vision is to establish CharityConnect as the leading platform in India, uniting organizational entities and individuals in collaborative efforts to drive positive social change.</p>
-        </section>
+                    <main>
+                        <section className="about-us">
+                            <img className="img1" src="../images/abouts.png" alt="About Us Logo" />
+                            <h2 className="About">About Us</h2>
+                            <p>CharityConnect is a leading platform that empowers individuals and organizations to make a meaningful impact on society. We provide comprehensive resources and opportunities for volunteering, fundraising, and social entrepreneurship. By connecting diverse stakeholders, we foster collaboration, innovation, and sustainable social change. Our goal is to create a more compassionate and equitable world where everyone can contribute to making a difference.</p>
+                        </section>
 
-        <section class="mission">
-            <img class="img3" src="../images/mission.png" alt="Mission Logo">
-            <h2 class="Mission">Mission</h2>
-            <p>CharityConnect is committed to providing comprehensive resource solutions that bridge NGOs, volunteers, and corporates. We aim to create mutually beneficial partnerships and enhance the effectiveness and structure of these associations.</p>
-        </section>
-    </main>
+                        <section className="vision">
+                            <img className="img2" src="../images/vision.png" alt="Vision Logo" />
+                            <h2 className="Vision">Vision</h2>
+                            <p>Our vision is to establish CharityConnect as the leading platform in India, uniting organizational entities and individuals in collaborative efforts to drive positive social change.</p>
+                        </section>
 
-    <footer class="team">
-        <div class="member">
-            <h2 style="font-size: 45px;">Team</h2>
-            <ul>
-                <li class="ab">Abhranshu Sarkar</li>
-                <li class="ak">Akhilesh M</li>
-                <li class="as">A. Surya Srikhar</li>
-            </ul>
-        </div>
-    </footer>
+                        <section className="mission">
+                            <img className="img3" src="../images/mission.png" alt="Mission Logo" />
+                            <h2 className="Mission">Mission</h2>
+                            <p>CharityConnect is committed to providing comprehensive resource solutions that bridge NGOs, volunteers, and corporates. We aim to create mutually beneficial partnerships and enhance the effectiveness and structure of these associations.</p>
+                        </section>
+                    </main>
+
+                    <footer className="team">
+                        <div className="member">
+                            <h2 style={{ fontSize: '45px' }}>Team</h2>
+                            <ul>
+                                <li className="ab">Abhranshu Sarkar</li>
+                                <li className="ak">Akhilesh M</li>
+                                <li className="as">A. Surya Srikhar</li>
+                            </ul>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<CharityConnect />, document.getElementById('root'));
+    </script>
 </body>
 
 </html>

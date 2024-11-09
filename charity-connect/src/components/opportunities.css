@@ -1,0 +1,69 @@
+.opportunities {
+    padding: 40px;
+    background-color: #f8f8f8;
+    text-align: center;
+  }
+  
+  .opportunities h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  
+  .opportunities h2 span {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .opportunity-categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+  }
+  
+  .icon-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: #b2d1ff; /* Light placeholder color for icon */
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .category p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .statistics {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+  }
+  
+  .stat p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .stat span {
+    font-size: 14px;
+    color: #777;
+  }

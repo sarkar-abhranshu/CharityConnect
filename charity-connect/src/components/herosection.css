@@ -1,0 +1,13 @@
+.hero-section {
+    height: 400px;
+    background: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-image {
+    width: 90%;
+    height: 80%;
+    background: #c4c4c4;
+  }

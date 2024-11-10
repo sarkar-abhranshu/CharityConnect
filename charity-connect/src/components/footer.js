@@ -25,7 +25,6 @@ function Footer() {
         <a href="/about">About us</a>
         <a href="/services">Services</a>
         <a href="/contact">Contact</a>
-        <a href="/privacy">Privacy</a>
       </div>
       <div className="copyright">
         <p>Copyright © 2024 CharityConnect Pvt. Ltd. All rights reserved.</p>

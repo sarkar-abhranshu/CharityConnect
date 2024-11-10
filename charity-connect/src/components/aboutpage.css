@@ -72,7 +72,8 @@ p {
     background-color: wheat; 
     color: black; 
     padding: 20px; 
-    text-align: center; 
+    text-align: center;
+    border-bottom: 2px solid black;
 }
 
 .team h2 {

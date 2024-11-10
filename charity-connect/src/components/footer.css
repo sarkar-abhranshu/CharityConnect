@@ -15,17 +15,20 @@
   gap: 20px;
 }
 
-.contact-info, .social-links {
+.footer .contact-info,
+.footer .social-links {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.contact-info p, .social-links p {
+.footer .contact-info p,
+.footer .social-links p {
   font-weight: bold;
 }
 
-.contact-info a, .social-links a {
+.footer .contact-info a,
+.footer .social-links a {
   color: #333;
   text-decoration: none;
   margin: 5px 0;

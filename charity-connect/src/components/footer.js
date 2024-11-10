@@ -17,15 +17,15 @@ function Footer() {
         </div>
         <div className="social-links">
           <p>Let's Connect</p>
-          <a href="#signup">Sign Up</a>
-          <a href="#login">Login</a>
+          <a href="/signup">Sign Up</a>
+          <a href="/login">Login</a>
         </div>
       </div>
       <div className="quick-links">
-        <a href="#about">About us</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="#privacy">Privacy</a>
+        <a href="/about">About us</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
       </div>
       <div className="copyright">
         <p>Copyright © 2024 CharityConnect Pvt. Ltd. All rights reserved.</p>

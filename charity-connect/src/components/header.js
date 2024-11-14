@@ -7,7 +7,7 @@ function Header() {
       <a href="/" className="logo">CharityConnect</a>
       <div className='links-menu'>
         <nav>
-          <a href="/login">Services</a>
+          <a href="/services">Services</a>
           <a href="/contact">Contact us</a>
           <a href="/about">About us</a>
         </nav>

@@ -4,8 +4,7 @@ import './herosection.css';
 function HeroSection() {
   return (
     <section className="hero-section">
-      {/* Placeholder for banner image */}
-      <div className="hero-image"></div>
+     <img src="./charity-donation-help-support-charitable-assistance-concept-69198634.webp" alt="Homepage image showing charity donation support" className="hero-image"></img>
     </section>
   );
 }

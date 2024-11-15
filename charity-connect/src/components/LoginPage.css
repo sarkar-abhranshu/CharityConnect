@@ -54,7 +54,8 @@
 }
 
 .login-btn:hover {
-    background-color: #218838;
+    background-color: wheat;
+    color:#333333;
 }
 
 .footer-links {

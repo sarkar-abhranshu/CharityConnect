@@ -14,15 +14,15 @@ function Opportunities() {
       <div className="center">
         <div className="opportunity-categories">
           <div className="category">
-            <div className="icon-placeholder"></div>
+            <img src="/health.webp" className="education-placeholder"></img>
             <p>Education & Literacy</p>
           </div>
           <div className="category">
-            <div className="icon-placeholder"></div>
+            <img src="/child.webp"  className="children-placeholder"></img>
             <p>Children</p>
           </div>
           <div className="category">
-            <div className="icon-placeholder"></div>
+            <img src="/school.webp" className="health-placeholder"></img>
             <p>Health</p>
           </div>
         </div>
@@ -33,19 +33,15 @@ function Opportunities() {
         <div className="statistics">
           <div className="stat">
             <p>84,235</p>
-            <span>Volunteers</span>
+            <span>Users</span>
           </div>
           <div className="stat">
             <p>500</p>
             <span>NGOs</span>
           </div>
           <div className="stat">
-            <p>3,53,500</p>
-            <span>Volunteer Hours</span>
-          </div>
-          <div className="stat">
             <p>₹ 1,75,68,000</p>
-            <span>Amount Saved</span>
+            <span>Amount donated</span>
           </div>
         </div>
       </div>

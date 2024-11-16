@@ -3,7 +3,6 @@ import './SignupPage.css';
 import Header from './header';
 import Footer from './footer';
 
-
 function SignupPage() {
     const [formData, setFormData] = useState({
         username: '',
@@ -12,76 +11,118 @@ function SignupPage() {
         confirmPassword: ''
     });
 
-    const handleSubmit = (e) => {
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
+        setSuccess('');
+
+        if (formData.password !== formData.confirmPassword) {
+            setError('Passwords do not match!');
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: formData.username,
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setSuccess('User registered successfully!');
+                setTimeout(() => {
+                    window.location.href = '/login';
+                }, 2000);
+            } else {
+                setError(data.error || 'Signup failed!');
+            }
+        } catch (err) {
+            console.error('Error:', err);
+            setError('Failed to connect to the server.');
+        }
     };
 
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         });
     };
 
     return (
         <>
-            <Header/>
+            <Header />
             <div className="signup-page">
                 <div className="signup-container">
                     <h2>Create Your Charity Connect Account</h2>
+                    {error && <p className="error">{error}</p>}
+                    {success && <p className="success">{success}</p>}
                     <form className="signup-form" onSubmit={handleSubmit}>
                         <div className="input-group">
                             <label htmlFor="username">Username</label>
-                            <input 
-                                type="text" 
-                                id="username" 
-                                name="username" 
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
                                 value={formData.username}
                                 onChange={handleChange}
-                                required 
+                                required
                             />
                         </div>
                         <div className="input-group">
                             <label htmlFor="email">Email</label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                required 
+                                required
                             />
                         </div>
                         <div className="input-group">
                             <label htmlFor="password">Password</label>
-                            <input 
-                                type="password" 
-                                id="password" 
-                                name="password" 
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                required 
+                                required
                             />
                         </div>
                         <div className="input-group">
                             <label htmlFor="confirmPassword">Confirm Password</label>
-                            <input 
-                                type="password" 
-                                id="confirmPassword" 
-                                name="confirmPassword" 
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
                                 value={formData.confirmPassword}
                                 onChange={handleChange}
-                                required 
+                                required
                             />
                         </div>
-                        <button type="submit" className="signup-btn">Sign Up</button>
+                        <button type="submit" className="signup-btn">
+                            Sign Up
+                        </button>
                     </form>
                     <div className="footer-links">
                         <a href="/login">Already have an account?</a>
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }

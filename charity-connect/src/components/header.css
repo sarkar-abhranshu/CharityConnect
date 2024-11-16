@@ -3,6 +3,9 @@
     justify-content: space-between;
     padding: 20px;
     background: wheat;
+    box-shadow: 0 4px 2px -2px gray;
+    position: relative;
+    z-index: 1000;
   }
   
   .header .logo {

@@ -27,7 +27,7 @@ function App() {
     );
   }
 
-  else if (pathname === '/login') {
+  if (pathname === '/login') {
     return (
       <>
         <LoginPage/>
@@ -43,14 +43,16 @@ function App() {
     );
   }
 
-  return (
-    <>
-      <Header />
-      <HeroSection />
-      <Opportunities />
-      <Footer />
-    </>
-  );
+  if (pathname === '/home') {
+    return (
+      <>
+        <Header />
+        <HeroSection />
+        <Opportunities />
+        <Footer />
+      </>
+    );
+  }
 }
 
 export default App;

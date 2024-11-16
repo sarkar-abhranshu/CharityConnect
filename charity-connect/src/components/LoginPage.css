@@ -59,6 +59,16 @@
     color:#333333;
 }
 
+.login-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.login-btn:disabled:hover {
+    background-color: #cccccc;
+    color: #ffffff;
+}
+
 .footer-links {
     margin-top: 15px;
     font-size: 14px;
@@ -72,4 +82,35 @@
 
 .footer-links a:hover {
     text-decoration: underline;
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.success {
+    color: #28a745;
+    background-color: #d4edda;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 15px 0;
+    font-size: 14px;
+    animation: fadeIn 0.5s ease-in;
+    border: 1px solid #c3e6cb;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

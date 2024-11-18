@@ -10,11 +10,21 @@ function MenuPage() {
             <a href='/ham'>
                 <div className="menu-container">
                     <ul className="menu-list">
-                        <li>ABOUT</li>
-                        <li>SERVICES</li>
-                        <li>CONTACT</li>
-                        <li>SIGNUP</li>
-                        <li>LOGIN</li>
+                        <li>
+                            <a href='/about'>ABOUT</a>
+                        </li>
+                        <li>
+                            <a href='/services'>SERVICES</a>
+                        </li>
+                        <li>
+                            <a href='/contact'>CONTACT</a>
+                        </li>
+                        <li>
+                            <a href='/signup'>SIGNUP</a>
+                        </li>
+                        <li>
+                            <a href='/login'>LOGIN</a>
+                        </li>
                     </ul>
                 </div>
             </a>

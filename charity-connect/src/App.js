@@ -7,6 +7,7 @@ import AboutPage from './components/aboutpage';
 import ContactPage from './components/contactpage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
+import HamPage from './components/ham';
 
 function App() {
   const pathname = window.location.pathname;
@@ -41,6 +42,14 @@ function App() {
         <SignupPage />
       </>
     );
+  }
+
+  if (pathname === '/ham') {
+    return (
+      <>
+        <HamPage />
+      </>
+    )
   }
 
   if (pathname === '/home') {

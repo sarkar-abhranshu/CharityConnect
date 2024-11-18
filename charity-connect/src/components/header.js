@@ -4,7 +4,7 @@ import './header.css';
 function Header() {
   return (
     <header className="header">
-      <a href="/" className="logo">CharityConnect</a>
+      <a href="/home" className="logo">CharityConnect</a>
       <div className='links-menu'>
         <nav>
           <a href="/services">Services</a>
@@ -12,9 +12,9 @@ function Header() {
           <a href="/about">About us</a>
         </nav>
         <div className="hamburger-menu">
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+          <a href='/ham' className='bar'></a>
+          <a href='/ham' className='bar'></a>
+          <a href='/ham' className='bar'></a>
         </div>
       </div>
     </header>

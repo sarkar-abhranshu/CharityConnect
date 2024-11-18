@@ -20,7 +20,7 @@ function LoginPage() {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Add this line to prevent form refresh
+        e.preventDefault();
         setLoading(true);
         setError('');
         setSuccess('');
@@ -45,7 +45,7 @@ function LoginPage() {
                 setError(data.error || 'Login failed!');
             }
         } catch (err) {
-            setError('Failed to connect to the server.'); // Added error message
+            setError('Failed to connect to the server.');
         } finally {
             setLoading(false);
         }

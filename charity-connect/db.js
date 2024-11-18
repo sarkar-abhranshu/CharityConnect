@@ -14,4 +14,14 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+// Contact form schema and model
+const contactSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String },
+    phone: { type: String },
+    message: { type: String }
+});
+
+const Contact = mongoose.model('Contact', contactSchema);
+
+module.exports = { User, Contact };

@@ -8,6 +8,8 @@ import ContactPage from './components/contactpage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import HamPage from './components/ham';
+import ServicesPage from './components/ServicesPage';
+
 
 function App() {
   const pathname = window.location.pathname;
@@ -50,6 +52,14 @@ function App() {
         <HamPage />
       </>
     )
+  }
+
+  if (pathname === '/services') {
+    return (
+      <>
+        <ServicesPage />
+      </>
+    );
   }
 
   if (pathname === '/home') {

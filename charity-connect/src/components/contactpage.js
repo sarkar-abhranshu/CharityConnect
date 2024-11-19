@@ -83,24 +83,26 @@ const ContactPage = () => {
                         </div>
                         
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">Email*</label>
                             <input 
                                 type="email" 
                                 id="email" 
                                 name="email" 
                                 value={formData.email} 
-                                onChange={handleChange} 
+                                onChange={handleChange}
+                                required
                             />
                         </div>
                         
                         <div className="form-group">
-                            <label htmlFor="phone">Phone</label>
+                            <label htmlFor="phone">Phone*</label>
                             <input 
                                 type="tel" 
                                 id="phone" 
                                 name="phone" 
                                 value={formData.phone} 
-                                onChange={handleChange} 
+                                onChange={handleChange}
+                                required
                             />
                         </div>
                         

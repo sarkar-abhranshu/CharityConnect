@@ -1,12 +1,9 @@
 import React from 'react';
 import './ham.css';
-import Header from './header';
-import Footer from './footer';
 
 function MenuPage() {
     return (
         <>
-            <Header/>
             <a href='/ham'>
                 <div className="menu-container">
                     <ul className="menu-list">
@@ -28,7 +25,6 @@ function MenuPage() {
                     </ul>
                 </div>
             </a>
-            <Footer/>
         </>
     );
 }

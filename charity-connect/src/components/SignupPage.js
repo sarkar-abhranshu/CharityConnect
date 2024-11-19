@@ -45,7 +45,13 @@ function SignupPage() {
                     window.location.href = '/login';
                 }, 2000);
             } else {
-                setError(data.error || 'Signup failed!');
+                if (data.error === 'Username already exists') {
+                    setError('Username already exists!');
+                } else if (data.error === 'Email already exists') {
+                    setError('Email already exists!');
+                } else {
+                    setError(data.error || 'Signup failed!');
+                }
             }
         } catch (err) {
             console.error('Error:', err);
@@ -99,6 +105,8 @@ function SignupPage() {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
+                                pattern="(?=.*[A-Z])(?=.*\d)(?=.*[@$#]).{6,}"
+                                title="Password must be at least 6 characters long, contain at least one number, one uppercase letter, and one special character (@, $, #)"
                                 required
                             />
                         </div>
@@ -110,6 +118,14 @@ function SignupPage() {
                                 name="confirmPassword"
                                 value={formData.confirmPassword}
                                 onChange={handleChange}
+                                onInput={(e) =>
+                                    e.target.setCustomValidity(
+                                        e.target.value !== formData.password
+                                            ? "Passwords do not match"
+                                            : ""
+                                    )
+                                }
+                                title="Passwords must match"
                                 required
                             />
                         </div>

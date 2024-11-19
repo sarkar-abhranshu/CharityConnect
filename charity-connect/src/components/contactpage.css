@@ -39,7 +39,21 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 50px;
+}
+
+.contact-info {
+    width: 30%;
+    padding: 20px;
+}
+
+.contact-card {
     background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Rename contact-info to contact-page-info to avoid conflict with footer */
@@ -113,9 +127,19 @@ body {
         padding: 20px;
     }
 
+    .contact-info,
+    .contact-card {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
     .contact-page-info,
     .contact-form {
         width: 100%;
         margin-bottom: 30px;
+    }
+
+    .contact-card {
+        padding: 20px;
     }
 }

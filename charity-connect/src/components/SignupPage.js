@@ -45,13 +45,7 @@ function SignupPage() {
                     window.location.href = '/login';
                 }, 2000);
             } else {
-                if (data.error === 'Username already exists') {
-                    setError('Username already exists!');
-                } else if (data.error === 'Email already exists') {
-                    setError('Email already exists!');
-                } else {
-                    setError(data.error || 'Signup failed!');
-                }
+                setError(data.error || 'Signup failed!');
             }
         } catch (err) {
             console.error('Error:', err);

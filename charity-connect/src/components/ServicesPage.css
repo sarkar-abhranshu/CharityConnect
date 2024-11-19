@@ -1,11 +1,13 @@
 /* General Styling */
   .services-page {
+    min-height: calc(100vh - 60px); /* Adjust for header height */
     padding: 40px;
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
+    margin-bottom: 60px; /* Add space for footer */
   }
   
   /* Hero Section */
@@ -99,4 +101,3 @@
     font-size: 1em;
     color: #666;
   }
-  

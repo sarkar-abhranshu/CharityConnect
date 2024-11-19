@@ -66,61 +66,63 @@ const ContactPage = () => {
                     </p>
                 </div>
                 
-                <div className="contact-form">
-                    <h2>Connect with Us</h2>
-                    {successMessage && <p className="success-message">{successMessage}</p>}
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name">Name*</label>
-                            <input 
-                                type="text" 
-                                id="name" 
-                                name="name" 
-                                required 
-                                value={formData.name} 
-                                onChange={handleChange} 
-                            />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="email">Email*</label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                value={formData.email} 
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="phone">Phone*</label>
-                            <input 
-                                type="tel" 
-                                id="phone" 
-                                name="phone" 
-                                value={formData.phone} 
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="message">Message</label>
-                            <textarea 
-                                id="message" 
-                                name="message" 
-                                rows="4" 
-                                value={formData.message} 
-                                onChange={handleChange}
-                            ></textarea>
-                        </div>
-                        
-                        <div className="form-group">
-                            <button type="submit" className="submit-button">Submit</button>
-                        </div>
-                    </form>
+                <div className="contact-card">
+                    <div className="contact-form">
+                        <h2>Connect with Us</h2>
+                        {successMessage && <p className="success-message">{successMessage}</p>}
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="name">Name*</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    required 
+                                    value={formData.name} 
+                                    onChange={handleChange} 
+                                />
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="email">Email*</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    value={formData.email} 
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="phone">Phone*</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    value={formData.phone} 
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="message">Message</label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    rows="4" 
+                                    value={formData.message} 
+                                    onChange={handleChange}
+                                ></textarea>
+                            </div>
+                            
+                            <div className="form-group">
+                                <button type="submit" className="submit-button">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
             <Footer/>

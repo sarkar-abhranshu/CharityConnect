@@ -21,7 +21,11 @@ router.post('/signup', async (req, res) => {
     } catch (err) {
         console.error(err);
         if (err.code === 11000) {
-            res.status(400).json({ error: 'Username/Email already exists' });
+            // Check which field caused the duplicate key error
+            const field = Object.keys(err.keyPattern)[0];
+            res.status(400).json({ 
+                error: `${field === 'username' ? 'Username' : 'Email'} already exists`
+            });
         } else {
             res.status(500).json({ error: 'Server error' });
         }

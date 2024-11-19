@@ -22,30 +22,21 @@ function ServicesPage() {
         {/* Services Grid */}
         <div className="services-grid">
           <div className="service-card">
-            <h2>Consulting</h2>
+            <h2>Connections</h2>
             <p>
-              Expert guidance to help you achieve your business objectives
-              efficiently.
+              Effectively connect with our network of partnr NGOs.
             </p>
           </div>
           <div className="service-card">
-            <h2>Web Development</h2>
+            <h2>Fundraising Campaigns</h2>
             <p>
-              Customized, user-friendly websites to showcase your brand
-              effectively.
+              Efficiently run fundraising campaigns and reach a wide audience.
             </p>
           </div>
           <div className="service-card">
-            <h2>Digital Marketing</h2>
+            <h2>Community Outreach</h2>
             <p>
-              Strategies to boost your online presence and reach a wider
-              audience.
-            </p>
-          </div>
-          <div className="service-card">
-            <h2>Customer Support</h2>
-            <p>
-              24/7 support to assist your customers and improve satisfaction.
+              Reach out to a wide audience willing to participate or donate to your chairtable cause.
             </p>
           </div>
         </div>
@@ -58,7 +49,7 @@ function ServicesPage() {
           </div>
           <div className="stat">
             <h3>120+</h3>
-            <p>Successful Projects</p>
+            <p>Partner NGOs</p>
           </div>
           <div className="stat">
             <h3>95%</h3>
@@ -66,6 +57,7 @@ function ServicesPage() {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 }

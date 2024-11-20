@@ -4,7 +4,6 @@ import './ham.css';
 function MenuPage() {
     return (
         <>
-            <a href='/ham'>
                 <div className="menu-container">
                     <ul className="menu-list">
                         <li>
@@ -22,9 +21,12 @@ function MenuPage() {
                         <li>
                             <a href='/login'>LOGIN</a>
                         </li>
+                        <li>
+                            <a href="/home">&larr; Go back</a>
+                        </li>
                     </ul>
                 </div>
-            </a>
+            
         </>
     );
 }

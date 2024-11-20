@@ -50,27 +50,27 @@ const ContactPage = () => {
     return (
         <>
             <Header />
-            <section className="contact-section">
-                <h1>Contact us</h1>
-                <p>
-                    Call us on the given mobile numbers or fill the form and get an email within 24 hours!
-                </p>
-            </section>
-
             <section className="contact-details">
+                {/* Header on the left */}
                 <div className="contact-info">
+                    <h1>Contact Us</h1>
+                    <p>
+                        Call us on the given mobile numbers or fill the form and get an email within 24 hours!
+                    </p>
                     <h2>Phone</h2>
                     <p>
                         +91 9876543210<br />
                         +91 9876543210
                     </p>
                 </div>
-                
+
+                {/* Form on the right */}
                 <div className="contact-card">
                     <div className="contact-form">
                         <h2>Connect with Us</h2>
                         {successMessage && <p className="success-message">{successMessage}</p>}
                         <form onSubmit={handleSubmit}>
+                            {/* Form Fields */}
                             <div className="form-group">
                                 <label htmlFor="name">Name*</label>
                                 <input 
@@ -82,7 +82,6 @@ const ContactPage = () => {
                                     onChange={handleChange} 
                                 />
                             </div>
-                            
                             <div className="form-group">
                                 <label htmlFor="email">Email*</label>
                                 <input 
@@ -94,7 +93,6 @@ const ContactPage = () => {
                                     required
                                 />
                             </div>
-                            
                             <div className="form-group">
                                 <label htmlFor="phone">Phone*</label>
                                 <input 
@@ -106,7 +104,6 @@ const ContactPage = () => {
                                     required
                                 />
                             </div>
-                            
                             <div className="form-group">
                                 <label htmlFor="message">Message</label>
                                 <textarea 
@@ -117,7 +114,6 @@ const ContactPage = () => {
                                     onChange={handleChange}
                                 ></textarea>
                             </div>
-                            
                             <div className="form-group">
                                 <button type="submit" className="submit-button">Submit</button>
                             </div>

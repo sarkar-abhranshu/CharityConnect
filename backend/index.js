@@ -2,8 +2,12 @@ import bcrypt from "bcrypt";
 import pool from "./db.js";
 import express from "express";
 import cors from "cors";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
 const app = express();
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 app.use(cors());
 app.use(express.json());
@@ -20,9 +24,20 @@ app.post("/api/auth/login", async (req, res) => {
   if (!match) {
     return res.status(401).json({ message: "Invalid password" });
   }
+
+  const token = jwt.sign(
+    { id: rows[0].id, email: rows[0].email, role: rows[0].role },
+    JWT_SECRET,
+    { expiresIn: "7d" },
+  );
   res.json({
     success: true,
-    user: { id: rows[0].id, username: rows[0].username, role: rows[0].role },
+    user: {
+      id: rows[0].id,
+      username: rows[0].username,
+      email: rows[0].email,
+      role: rows[0].role,
+    },
   });
 });
 
@@ -33,6 +48,10 @@ app.post("/api/auth/signup", async (req, res) => {
     "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)",
     [username, email, hashPass, role],
   );
+
+  const token = jwt.sign({ id: rows.insertId, email, role }, JWT_SECRET, {
+    expiresIn: "7d",
+  });
   res.json({
     success: true,
     user: { id: rows.insertId, username, role },

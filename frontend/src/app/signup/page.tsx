@@ -7,7 +7,7 @@ export default function LoginPage() {
   return (
     <div>
       <Header />
-      <AuthForm mode="login" />
+      <AuthForm mode="signup" />
       <Footer />
     </div>
   );

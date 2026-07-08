@@ -9,6 +9,23 @@ const app = express();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
+const authToken = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (!token) {
+    return res.status(401).json({ message: "Access token required" });
+  }
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).json({ message: "Invalid or expired token" });
+    }
+    req.user = user;
+    next();
+  });
+};
+
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:3000",
@@ -39,6 +56,7 @@ app.post("/api/auth/login", async (req, res) => {
   );
   res.json({
     success: true,
+    token,
     user: {
       id: rows[0].id,
       username: rows[0].username,
@@ -61,6 +79,7 @@ app.post("/api/auth/signup", async (req, res) => {
   });
   res.json({
     success: true,
+    token,
     user: { id: rows.insertId, username, role },
   });
 });

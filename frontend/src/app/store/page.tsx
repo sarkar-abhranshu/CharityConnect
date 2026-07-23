@@ -14,9 +14,12 @@ export interface Event {
 }
 
 export default async function Store() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/events`, {
-    cache: "no-store",
-  });
+  const baseUrl = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/events`, {
+      cache: "no-store",
+    });
 
   if (!res.ok) {
     throw new Error(`API returned ${res.status}: ${res.statusText}`);

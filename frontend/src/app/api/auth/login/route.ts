@@ -1,28 +1,21 @@
 import bcrypt from "bcrypt";
-import pool from "./db.js";
-import express from "express";
-import cors from "cors";
+import pool from "@/lib/db";
 import jwt from "jsonwebtoken";
-import "dotenv/config";
+import { NextRequest, NextResponse } from "next/server";
 
-const app = express();
+const JWT_SECRET = process.env.JWT_SECRET!;
 
-const JWT_SECRET = process.env.JWT_SECRET;
-
-app.use(cors());
-app.use(express.json());
-
-app.post("/api/auth/login", async (req, res) => {
-  const { email, password } = req.body;
-  const [rows] = await pool.query("SELECT * FROM users WHERE email = ?", [
+export async function POST(req: NextRequest) {
+  const { email, password } = await req.json();
+  const [rows]: any = await pool.query("SELECT * FROM users WHERE email = ?", [
     email,
   ]);
   if (rows.length === 0) {
-    return res.status(401).json({ message: "User not found" });
+    return NextResponse.json({ message: "User not found" }, { status: 401 });
   }
   const match = await bcrypt.compare(password, rows[0].password);
   if (!match) {
-    return res.status(401).json({ message: "Invalid password" });
+    return NextResponse.json({ message: "Invalid password" }, { status: 401 });
   }
 
   const token = jwt.sign(
@@ -30,7 +23,8 @@ app.post("/api/auth/login", async (req, res) => {
     JWT_SECRET,
     { expiresIn: "7d" },
   );
-  res.json({
+
+  return NextResponse.json({
     success: true,
     user: {
       id: rows[0].id,
@@ -39,4 +33,4 @@ app.post("/api/auth/login", async (req, res) => {
       role: rows[0].role,
     },
   });
-});
+}

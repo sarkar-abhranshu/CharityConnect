@@ -2,6 +2,7 @@ import EventCard from "../components/EventCard";
 import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import pool from "@/lib/db";
 
 export interface Event {
   id: number;
@@ -14,22 +15,13 @@ export interface Event {
 }
 
 export default async function Store() {
-  const baseUrl = process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/events`, {
-      cache: "no-store",
-    });
-
-  if (!res.ok) {
-    throw new Error(`API returned ${res.status}: ${res.statusText}`);
-  }
-
-  const events: Event[] = await res.json();
-
-  if (!Array.isArray(events)) {
-    throw new Error("API response is not an array");
-  }
+  const [rows] = await pool.query(
+    `SELECT events.*, users.username AS ngo_name
+    FROM events
+    JOIN users ON events.ngo_id = users.id
+    ORDER BY event_date ASC`,
+  );
+  const events = rows as Event[];
   const [featured, ...rest] = events;
 
   return (

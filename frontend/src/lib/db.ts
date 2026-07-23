@@ -1,5 +1,4 @@
 import mysql from "mysql2/promise";
-import "dotenv/config";
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || "localhost",
@@ -8,7 +7,7 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME || "charConn",
   waitForConnections: true,
   connectionLimit: 10,
-  decimalNumbers: true, // mysql2 returns decimals as string otherwise and we want them as numbers only for price
+  decimalNumbers: true,
 });
 
 export default pool;

@@ -14,7 +14,7 @@ export interface Event {
 }
 
 export default async function Store() {
-  const res = await fetch(`${process.env.API_URL}/api/events`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/events`, {
     cache: "no-store",
   });
 

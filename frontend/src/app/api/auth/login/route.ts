@@ -40,32 +40,3 @@ app.post("/api/auth/login", async (req, res) => {
     },
   });
 });
-
-app.post("/api/auth/signup", async (req, res) => {
-  const { username, email, password, role } = req.body;
-  const hashPass = await bcrypt.hash(password, 10);
-  const [rows] = await pool.query(
-    "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)",
-    [username, email, hashPass, role],
-  );
-
-  const token = jwt.sign({ id: rows.insertId, email, role }, JWT_SECRET, {
-    expiresIn: "7d",
-  });
-  res.json({
-    success: true,
-    user: { id: rows.insertId, username, role },
-  });
-});
-
-app.get("/api/events", async (req, res) => {
-  const [rows] = await pool.query(
-    `SELECT events.*, users.username AS ngo_name
-    FROM events
-    JOIN users ON events.ngo_id = users.id
-    ORDER BY event_date ASC`,
-  );
-  res.json(rows);
-});
-
-app.listen(3001, () => console.log("Server running on http://localhost:3001"));

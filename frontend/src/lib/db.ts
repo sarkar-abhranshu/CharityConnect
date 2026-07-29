@@ -1,12 +1,17 @@
 import mysql from "mysql2/promise";
 
+const ssl =
+  process.env.DB_SSL === "true" || process.env.NODE_ENV === "production"
+    ? {}
+    : undefined;
+
 const pool = mysql.createPool({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "",
   password: process.env.DB_PASSWORD || "",
   database: process.env.DB_NAME || "charConn",
   port: Number(process.env.DB_PORT) || 4000,
-  ssl: {},
+  ssl,
   waitForConnections: true,
   connectionLimit: 10,
   decimalNumbers: true,

@@ -27,7 +27,12 @@ const AuthForm = ({ mode }: { mode: "login" | "signup" }) => {
         body: JSON.stringify(authParams),
       });
 
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = {};
+      }
 
       if (!res.ok) {
         setError(data.error || `${mode} failed`);

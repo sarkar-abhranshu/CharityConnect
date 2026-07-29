@@ -9,7 +9,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative h-[600px] md:h-[700px] w-full overflow-hidden">
+        <section className="relative h-150 md:h-175 w-full overflow-hidden">
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center"

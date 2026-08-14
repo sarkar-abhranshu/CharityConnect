@@ -7,45 +7,49 @@ import { Event } from "../events/page";
 export default function EventCarousel({ events }: { events: Event[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [timerKey, setTimerKey] = useState(0);
 
   useEffect(() => {
     const interval = 50;
     const duration = 5000;
     const increment = (interval / duration) * 100;
 
+    setProgress(0);
+
     const progressTimer = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
-          return 0;
+        const newProgress = prev + increment;
+        if (newProgress >= 100) {
+          return 100;
         }
-        return prev + increment;
+        return newProgress;
       });
     }, interval);
 
     const slideTimer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % events.length);
-      setProgress(0);
+      setTimerKey((prev) => prev + 1);
     }, duration);
 
     return () => {
       clearInterval(progressTimer);
       clearInterval(slideTimer);
     };
-  }, [events.length]);
+  }, [events.length, timerKey]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
-    setProgress(0);
+    setTimerKey((prev) => prev + 1);
   };
 
   const gotoNext = () => {
     setCurrentIndex((prev) => (prev + 1) % events.length);
-    setProgress(0);
+    setTimerKey((prev) => prev + 1);
   };
 
   const gotoPrev = () => {
     setCurrentIndex((prev) => (prev - 1 + events.length) % events.length);
-    setProgress(0);
+    setTimerKey((prev) => prev + 1);
   };
 
   if (events.length === 0) return null;

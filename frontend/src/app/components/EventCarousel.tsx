@@ -6,25 +6,46 @@ import { Event } from "../events/page";
 
 export default function EventCarousel({ events }: { events: Event[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % events.length);
-    }, 5000);
+    const interval = 50;
+    const duration = 5000;
+    const increment = (interval / duration) * 100;
 
-    return () => clearInterval(timer);
+    const progressTimer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          return 0;
+        }
+        return prev + increment;
+      });
+    }, interval);
+
+    const slideTimer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % events.length);
+      setProgress(0);
+    }, duration);
+
+    return () => {
+      clearInterval(progressTimer);
+      clearInterval(slideTimer);
+    };
   }, [events.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
+    setProgress(0);
   };
 
   const gotoNext = () => {
     setCurrentIndex((prev) => (prev + 1) % events.length);
+    setProgress(0);
   };
 
   const gotoPrev = () => {
     setCurrentIndex((prev) => (prev - 1 + events.length) % events.length);
+    setProgress(0);
   };
 
   if (events.length === 0) return null;
@@ -114,13 +135,21 @@ export default function EventCarousel({ events }: { events: Event[] }) {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentIndex
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/75"
-                }`}
+              className="relative"
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              {index === currentIndex ? (
+                <div className="relative w-8 h-2 flex items-center justify-center">
+                  <div className="absolute w-full h-full bg-white/30 rounded-full" />
+                  <div
+                    className="absolute left-0 h-full bg-white rounded-full transition-all duration-75 ease-linear"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
+              ) : (
+                  <div className="w-2 h-2 rounded-full bg-white/50 hover:bg-white/75 transition-colors" />
+              )}
+            </button>
           ))}
         </div>
       )}

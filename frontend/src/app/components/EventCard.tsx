@@ -17,6 +17,7 @@ export default function EventCard({ event }: { event: Event }) {
         src={event.image_url}
         alt={event.title}
         fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors" />
